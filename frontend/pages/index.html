@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BloodConnect</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+
+  <body class="home-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+
+        <div class="nav-links">
+          <a href="/" aria-current="page">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="home-hero">
+        <div class="home-hero-text">
+          <p class="home-badge"><span class="home-badge-dot" aria-hidden="true"></span>Someone in India needs blood every 2 seconds</p>
+          <h1>Find blood.<br /><span class="home-accent">Save lives.</span></h1>
+          <p class="home-lead">
+            BloodConnect links patients with nearby, compatible donors and live blood bank stock,
+            so help arrives in minutes, not hours.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="emergency-btn" data-href="/emergency-request">🚨 Emergency Blood Request</button>
+            <button class="donor-btn" id="heroSecondaryButton" data-href="/register">🩸 Become a Donor</button>
+            <button class="donor-btn is-quiet" data-href="/blood-banks">🏦 Blood Bank Stock</button>
+          </div>
+
+          <ul class="home-trust">
+            <li>✓ Free for everyone</li>
+            <li>✓ Verified accounts</li>
+            <li>✓ Quick eligibility check</li>
+          </ul>
+        </div>
+
+        <aside class="home-stock-card" aria-labelledby="stockCardTitle">
+          <div class="home-stock-head">
+            <div>
+              <p class="home-stock-kicker"><span class="home-live-dot" aria-hidden="true"></span>Live</p>
+              <h2 id="stockCardTitle">Blood stock right now</h2>
+            </div>
+            <span class="home-stock-total" id="homeStockTotal">…</span>
+          </div>
+          <div class="home-stock-grid" id="homeStockGrid"></div>
+          <a class="home-stock-link" href="/blood-banks" id="homeStockLink">See all blood banks →</a>
+        </aside>
+      </section>
+
+      <section class="home-stats" aria-label="BloodConnect at a glance">
+        <div><strong>8</strong><span>blood groups matched</span></div>
+        <div><strong id="homeBankCount">–</strong><span>blood banks listed</span></div>
+        <div><strong>100%</strong><span>free to use</span></div>
+        <div><strong>24/7</strong><span>requests and alerts</span></div>
+      </section>
+
+      <section class="home-section">
+        <p class="home-kicker">Why BloodConnect</p>
+        <h2>Everything you need in an emergency</h2>
+        <div class="home-features">
+          <article class="home-feature">
+            <span class="home-feature-icon" aria-hidden="true">🎯</span>
+            <h3>Smart matching</h3>
+            <p>Finds compatible donors and ranks them by blood group, distance and availability.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature-icon" aria-hidden="true">📍</span>
+            <h3>Nearby donors</h3>
+            <p>See donors close to the hospital and get directions in one tap.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature-icon" aria-hidden="true">🏦</span>
+            <h3>Blood bank stock</h3>
+            <p>Check which banks have your group in stock, then call or WhatsApp them.</p>
+          </article>
+          <article class="home-feature">
+            <span class="home-feature-icon" aria-hidden="true">📋</span>
+            <h3>Live tracking</h3>
+            <p>Follow your request from submission to donation and see who accepted.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-section home-steps-section">
+        <p class="home-kicker">How it works</p>
+        <h2>From request to donor in 3 steps</h2>
+        <ol class="home-steps">
+          <li>
+            <span class="home-step-number">1</span>
+            <h3>Raise a request</h3>
+            <p>Enter the patient, blood group, units and hospital. It takes under a minute.</p>
+          </li>
+          <li>
+            <span class="home-step-number">2</span>
+            <h3>Donors get alerted</h3>
+            <p>Compatible donors nearby are notified and can accept your request.</p>
+          </li>
+          <li>
+            <span class="home-step-number">3</span>
+            <h3>Connect and donate</h3>
+            <p>Call or WhatsApp the donor, meet at the hospital and mark it fulfilled.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="emergency-section">
+        <h2>Need blood urgently?</h2>
+        <p>Create an emergency request and reach compatible donors near you right away.</p>
+        <button class="emergency-btn" data-href="/emergency-request">Request Blood Now</button>
+      </section>
+    </main>
+
+    <footer class="home-footer">
+      <div class="home-footer-inner">
+        <div>
+          <p class="home-footer-logo">🩸 BloodConnect</p>
+          <p>Every drop connects a life. A free community project for blood donors and patients.</p>
+        </div>
+        <nav class="home-footer-links" aria-label="Footer">
+          <a href="/about">About</a>
+          <a href="/blood-banks">Blood banks</a>
+          <a href="/register">Become a donor</a>
+          <a href="tel:108">Emergency: 108</a>
+        </nav>
+      </div>
+      <p class="home-footer-copy">© 2026 BloodConnect | Blood Donation and Donor Matching</p>
+    </footer>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/pages/index.js?v=2"></script>
+  </body>
+</html>

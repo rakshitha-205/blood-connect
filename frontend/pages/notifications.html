@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alerts - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="nearby-page alerts-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="matches-layout">
+      <div class="nearby-intro">
+        <p class="form-kicker">Alerts</p>
+        <h1>Blood request alerts</h1>
+        <p class="form-lead" id="alertsLead">Open emergency requests that need your blood group, most urgent and nearest first.</p>
+      </div>
+
+      <p class="match-ranking-note" id="alertsBanner" hidden></p>
+
+      <section class="accepted-section" id="acceptedSection" hidden aria-labelledby="acceptedTitle">
+        <div class="nearby-results-head">
+          <h2 id="acceptedTitle">Requests you accepted</h2>
+          <span class="nearby-sort" id="acceptedCount"></span>
+        </div>
+        <div class="nearby-list" id="acceptedList"></div>
+      </section>
+
+      <h2 class="alerts-list-title" id="alertsListTitle" hidden>Open requests</h2>
+
+      <div class="alerts-toolbar" id="alertsToolbar" hidden>
+        <div class="alerts-filters" role="group" aria-label="Filter alerts">
+          <button type="button" class="alerts-filter is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="alerts-filter" data-filter="critical" aria-pressed="false">Critical</button>
+          <button type="button" class="alerts-filter" data-filter="exact" aria-pressed="false">Exact group</button>
+        </div>
+        <button type="button" class="match-link is-subtle" id="refreshAlertsButton">Refresh</button>
+      </div>
+
+      <p id="alertsStatus" class="nearby-status" role="status" aria-live="polite"></p>
+
+      <div class="nearby-list" id="alertsList"></div>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/pages/notifications.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Blood Request - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="emergency-request-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request" aria-current="page">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+    <main class="request-page">
+      <div class="request-tabs" role="tablist" aria-label="Emergency request">
+        <button type="button" class="request-tab" role="tab" id="tab-new" data-tab="new" aria-controls="panel-new"><span class="request-tab-icon" aria-hidden="true">🚨</span>New request</button>
+        <button type="button" class="request-tab" role="tab" id="tab-matches" data-tab="matches" aria-controls="panel-matches"><span class="request-tab-icon" aria-hidden="true">👥</span>Matches</button>
+        <button type="button" class="request-tab" role="tab" id="tab-track" data-tab="track" aria-controls="panel-track"><span class="request-tab-icon" aria-hidden="true">📋</span>Track</button>
+      </div>
+
+      <section class="request-panel" id="panel-new" role="tabpanel" aria-labelledby="tab-new">
+        <div class="request-intro">
+          <div class="request-mark" aria-hidden="true">🚨</div>
+          <div>
+            <p class="form-kicker">Urgent care</p>
+            <h1>Emergency blood request</h1>
+            <p class="form-lead">
+              A few details are enough to look for available, compatible donors near the hospital.
+            </p>
+          </div>
+        </div>
+
+        <div class="lock-stage" id="requestStage">
+          <section class="er-gate" hidden aria-labelledby="requestGateTitle">
+            <div class="er-gate-icon" aria-hidden="true">🩸</div>
+            <h2 id="requestGateTitle">Log in to request blood</h2>
+            <p>Requests are made from a patient account so donors can reach you.</p>
+            <div class="er-gate-actions">
+              <a class="er-btn is-primary" href="/login">Log in</a>
+              <a class="er-btn" href="/register">Create account</a>
+            </div>
+            <p class="er-gate-hint">In a life-threatening emergency, call <a href="tel:108">108</a> right away.</p>
+          </section>
+
+          <form id="bloodRequestForm" class="request-form lock-content">
+            <section class="form-section" aria-labelledby="patientHeading">
+              <h2 id="patientHeading">Patient</h2>
+              <div class="form-grid">
+                <label>
+                  Patient name
+                  <input id="patientName" maxlength="100" placeholder="Full name" required />
+                </label>
+                <label>
+                  Contact number
+                  <input id="contact" type="tel" maxlength="30" placeholder="Phone number" required />
+                </label>
+              </div>
+            </section>
+
+            <section class="form-section" aria-labelledby="needHeading">
+              <h2 id="needHeading">What is needed</h2>
+              <div class="form-grid need-grid">
+                <label>
+                  Blood group
+                  <select id="bloodGroup" required>
+                    <option value="">Choose group</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                  </select>
+                </label>
+                <label>
+                  Units needed
+                  <input id="units" type="number" min="1" max="20" value="1" required />
+                </label>
+                <label>
+                  Urgency
+                  <select id="urgency" required>
+                    <option value="">Choose urgency</option>
+                    <option>Critical</option>
+                    <option>Urgent</option>
+                    <option>Normal</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="form-section" aria-labelledby="hospitalHeading">
+              <h2 id="hospitalHeading">Hospital</h2>
+              <div class="form-grid">
+                <label>
+                  Hospital
+                  <input id="hospital" maxlength="120" placeholder="Hospital name" required />
+                </label>
+                <label>
+                  Hospital location
+                  <input id="location" maxlength="160" placeholder="City or hospital address" required />
+                </label>
+                <div class="wide location-actions">
+                  <button type="button" class="ghost-btn" id="useLocation">Use my current location</button>
+                  <span id="locationMessage" aria-live="polite"></span>
+                </div>
+                <input id="latitude" type="hidden" />
+                <input id="longitude" type="hidden" />
+                <label class="wide">
+                  Additional information
+                  <textarea id="message" maxlength="1000" rows="3" placeholder="Anything the care team should know"></textarea>
+                </label>
+              </div>
+            </section>
+
+            <div class="form-footer">
+              <p id="formMessage" role="status" aria-live="polite"></p>
+              <button class="form-submit" type="submit" id="submitRequest">Find compatible donors</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="request-tab-panel" id="panel-matches" role="tabpanel" aria-labelledby="tab-matches" hidden>
+        <section class="match-request" id="matchRequest" hidden aria-labelledby="matchRequestTitle">
+          <div class="match-request-blood">
+            <span>Needs</span>
+            <strong id="resultBloodGroup">-</strong>
+          </div>
+          <div class="match-request-body">
+            <div class="match-request-top">
+              <h2 id="matchRequestTitle">For <span id="resultPatient">-</span></h2>
+              <span class="match-urgency" id="resultUrgency">-</span>
+            </div>
+            <dl class="match-request-facts">
+              <div><dt>Units</dt><dd id="resultUnits">-</dd></div>
+              <div><dt>Hospital</dt><dd id="resultHospital">-</dd></div>
+              <div><dt>Location</dt><dd id="resultLocation">-</dd></div>
+              <div><dt>Status</dt><dd id="resultStatus">-</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <p id="matchStatus" class="nearby-status" role="status" aria-live="polite"></p>
+
+        <div class="nearby-results-head">
+          <h2>Matched donors</h2>
+          <span class="nearby-sort" id="matchSortTag">Nearest first</span>
+        </div>
+
+        <p class="match-ranking-note" id="matchRankingNote" hidden></p>
+
+        <div class="nearby-list" id="matchList"></div>
+      </section>
+
+      <section class="request-tab-panel" id="panel-track" role="tabpanel" aria-labelledby="tab-track" hidden>
+        <p id="trackingMessage" class="nearby-status" role="status" aria-live="polite"></p>
+
+        <div id="trackingEmpty"></div>
+
+        <div class="tracking-content" id="trackingContent" hidden>
+          <section class="match-request" aria-labelledby="trackingTitle">
+            <div class="match-request-blood">
+              <span>Needs</span>
+              <strong id="trackedBloodGroup">-</strong>
+            </div>
+            <div class="match-request-body">
+              <div class="match-request-top">
+                <h2 id="trackingTitle">For <span id="trackedPatient">-</span></h2>
+                <span class="tracking-status" id="trackedStatus">-</span>
+              </div>
+              <p class="tracking-submitted" id="trackedCreatedAt"></p>
+              <dl class="match-request-facts">
+                <div><dt>Units</dt><dd id="trackedUnits">-</dd></div>
+                <div><dt>Urgency</dt><dd><span class="match-urgency" id="trackedUrgency">-</span></dd></div>
+                <div><dt>Hospital</dt><dd id="trackedHospital">-</dd></div>
+                <div><dt>Location</dt><dd id="trackedLocation">-</dd></div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="tracking-card" aria-labelledby="progressTitle">
+            <h2 id="progressTitle">Progress</h2>
+            <ol class="tracking-steps" id="trackingSteps"></ol>
+          </section>
+
+          <section class="tracking-card" id="acceptedCard" hidden aria-labelledby="acceptedTitle">
+            <div class="tracking-card-head">
+              <h2 id="acceptedTitle">Donors who accepted</h2>
+              <span class="accepted-tag" id="acceptedCount"></span>
+            </div>
+            <p class="tracking-card-lead" id="acceptedLead"></p>
+            <div class="nearby-list" id="acceptedDonors"></div>
+          </section>
+
+          <section class="tracking-card" aria-labelledby="donorsTitle">
+            <div class="tracking-card-head">
+              <h2 id="donorsTitle">Top matched donors</h2>
+              <button type="button" class="match-link request-tab-link" data-tab="matches">View all matches</button>
+            </div>
+            <ul class="tracking-donors" id="trackingDonors"></ul>
+          </section>
+
+          <div class="tracking-actions" id="trackingActions">
+            <button type="button" class="tracking-btn is-primary" id="fulfilledRequestButton">Mark as fulfilled</button>
+            <button type="button" class="tracking-btn" id="refreshRequestButton">Refresh status</button>
+            <button type="button" class="tracking-btn is-danger" id="cancelRequestButton">Cancel request</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/connect.js?v=2"></script>
+    <script src="/assets/js/pages/emergency-request.js?v=2"></script>
+  </body>
+</html>

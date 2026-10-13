@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Can I donate? - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="eligibility-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+    <main class="request-page">
+      <section class="request-panel elig-panel">
+        <div class="request-intro">
+          <div class="request-mark" aria-hidden="true">🩺</div>
+          <div>
+            <p class="form-kicker" data-i18n="kicker">Eligibility check</p>
+            <h1 data-i18n="title">Can I donate today?</h1>
+            <p class="form-lead" data-i18n="lead">
+              Answer a few quick questions. We'll tell you if you can donate today, or the date you can.
+            </p>
+          </div>
+        </div>
+
+        <div class="lock-stage" id="eligStage">
+        <section class="er-gate" hidden aria-labelledby="eligGateTitle">
+          <div class="er-gate-icon" aria-hidden="true">🩸</div>
+          <h2 id="eligGateTitle">Log in to check if you can donate</h2>
+          <p>The eligibility check is for registered BloodConnect members.</p>
+          <div class="er-gate-actions">
+            <a class="er-btn is-primary" href="/login">Log in</a>
+            <a class="er-btn" href="/register">Create account</a>
+          </div>
+          <p class="er-gate-hint">New here? It takes a minute to register as a donor.</p>
+        </section>
+
+        <div class="lock-content">
+        <form id="eligibilityForm" class="request-form elig-form" novalidate>
+          <section class="elig-section wide" aria-labelledby="eligBasicsHeading">
+            <h2 id="eligBasicsHeading" data-i18n="basics">About you</h2>
+            <div class="elig-basics">
+              <label>
+                <span data-i18n="age">Age (years)</span>
+                <input id="eligAge" type="number" min="1" max="120" inputmode="numeric" required />
+              </label>
+              <label>
+                <span data-i18n="weight">Weight (kg)</span>
+                <input id="eligWeight" type="number" min="10" max="300" step="0.5" inputmode="decimal" required />
+              </label>
+              <label>
+                <span data-i18n="sex">Sex</span>
+                <select id="eligSex" required>
+                  <option value="" data-i18n="choose">Choose</option>
+                  <option value="MALE" data-i18n="male">Male</option>
+                  <option value="FEMALE" data-i18n="female">Female</option>
+                </select>
+              </label>
+              <label>
+                <span data-i18n="lastDonation">Last blood donation (leave empty if never)</span>
+                <input id="eligLastDonation" type="date" />
+              </label>
+            </div>
+          </section>
+
+          <section class="elig-section wide" aria-labelledby="eligHealthHeading">
+            <h2 id="eligHealthHeading" data-i18n="health">Recent health</h2>
+            <div class="elig-questions" id="eligQuestions"></div>
+          </section>
+
+          <label class="wide elig-note">
+            <span data-i18n="noteLabel">Anything else? Describe it in your own words</span>
+            <textarea id="eligNote" maxlength="500" rows="3" data-i18n-placeholder="notePlaceholder"></textarea>
+            <small class="elig-note-count"><span id="eligNoteCount">0</span>/500</small>
+          </label>
+
+          <div class="form-footer wide">
+            <p id="eligMessage" role="status" aria-live="polite"></p>
+            <button class="form-submit" type="submit" id="eligSubmit" data-i18n="submit">Check my eligibility</button>
+          </div>
+        </form>
+
+        <section class="elig-result" id="eligResult" hidden aria-live="polite"></section>
+        </div>
+        </div>
+      </section>
+    </main>
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/pages/eligibility.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="profile-body">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="profile-page">
+      <section class="profile-signed-out" id="signedOut" hidden>
+        <h1>You are not logged in</h1>
+        <p>Log in or create an account to see your profile.</p>
+        <div class="profile-actions">
+          <a class="profile-btn primary" href="/login">Login</a>
+          <a class="profile-btn" href="/register">Create account</a>
+        </div>
+      </section>
+
+      <div id="profileContent" hidden>
+        <section class="profile-hero">
+          <div class="profile-avatar" id="profileAvatar" aria-hidden="true"></div>
+          <div class="profile-identity">
+            <p class="profile-welcome" id="profileWelcome">Welcome</p>
+            <h1 id="profileName"></h1>
+            <p class="profile-email" id="profileEmail"></p>
+            <div class="profile-tags">
+              <span class="profile-tag role" id="profileRole"></span>
+              <span class="profile-tag" id="profileSince"></span>
+            </div>
+          </div>
+        </section>
+
+        <p id="profileMessage" class="profile-message" role="status" aria-live="polite"></p>
+
+        <section class="profile-card" id="donorSection" hidden>
+          <div class="profile-card-head">
+            <h2>Donor details</h2>
+            <span class="profile-status" id="donorAvailability"></span>
+          </div>
+          <div class="profile-eligibility" id="donorEligibility"></div>
+
+          <form id="donorForm" class="profile-form">
+            <div class="form-group">
+              <label for="donorName">Full name</label>
+              <input id="donorName" maxlength="100" required />
+            </div>
+            <div class="form-group">
+              <label for="donorPhone">Phone number</label>
+              <input id="donorPhone" type="tel" maxlength="30" required />
+            </div>
+            <div class="form-group">
+              <label for="donorBloodGroup">Blood group</label>
+              <select id="donorBloodGroup" required>
+                <option value="">Select blood group</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="donorAvailable">Availability</label>
+              <select id="donorAvailable" required>
+                <option value="true">🟢 Available to donate</option>
+                <option value="false">🔴 Currently unavailable</option>
+              </select>
+            </div>
+            <div class="form-group wide">
+              <label for="donorLocation">Location</label>
+              <input id="donorLocation" maxlength="160" placeholder="City or area" required />
+            </div>
+            <div class="form-group wide profile-location">
+              <button type="button" class="ghost-btn" id="useProfileLocation">Use my current location</button>
+              <span id="profileLocationMessage" aria-live="polite"></span>
+              <input id="donorLatitude" type="hidden" />
+              <input id="donorLongitude" type="hidden" />
+            </div>
+            <button type="submit" class="register-submit wide">Save changes</button>
+          </form>
+        </section>
+
+        <section class="profile-card" id="requesterSection" hidden>
+          <div class="profile-card-head">
+            <h2>Latest blood request</h2>
+            <span class="profile-status" id="requestStatus"></span>
+          </div>
+          <dl class="profile-details" id="requestDetails" hidden>
+            <div><dt>Patient</dt><dd id="requestPatient"></dd></div>
+            <div><dt>Blood group</dt><dd id="requestBloodGroup"></dd></div>
+            <div><dt>Units</dt><dd id="requestUnits"></dd></div>
+            <div><dt>Urgency</dt><dd id="requestUrgency"></dd></div>
+            <div><dt>Hospital</dt><dd id="requestHospital"></dd></div>
+            <div><dt>Created</dt><dd id="requestCreated"></dd></div>
+          </dl>
+          <p class="profile-empty" id="requestEmpty" hidden>You have not created a blood request on this device yet.</p>
+        </section>
+
+        <section class="profile-card" id="ratingSection" hidden>
+          <div class="profile-card-head">
+            <h2>Your rating</h2>
+            <span id="ratingSummary"></span>
+          </div>
+          <ul class="review-list" id="reviewList"></ul>
+          <p class="profile-empty" id="reviewEmpty" hidden>No reviews yet. After a donation is fulfilled, the other person can rate you.</p>
+        </section>
+
+        <section class="profile-card">
+          <h2>Quick actions</h2>
+          <div class="profile-actions" id="quickActions"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/connect.js?v=2"></script>
+    <script src="/assets/js/pages/profile.js?v=2"></script>
+  </body>
+</html>

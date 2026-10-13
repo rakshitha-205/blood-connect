@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="nearby-page about-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="about-layout">
+      <section class="about-hero" aria-labelledby="aboutTitle">
+        <div class="about-hero-text">
+          <p class="form-kicker">About BloodConnect</p>
+          <h1 id="aboutTitle">Every drop connects a life.</h1>
+          <p class="form-lead">
+            BloodConnect links patients who urgently need blood with nearby, compatible donors, so
+            families spend less time making calls and more time with the people they love.
+          </p>
+        </div>
+        <ul class="about-stats" aria-label="BloodConnect at a glance">
+          <li><strong>8</strong><span>blood groups matched</span></li>
+          <li><strong>4</strong><span>steps from request to donor</span></li>
+          <li><strong>100%</strong><span>free to use</span></li>
+          <li><strong>24/7</strong><span>requests and alerts</span></li>
+        </ul>
+      </section>
+
+      <section class="about-section" aria-labelledby="missionTitle">
+        <div class="about-mission">
+          <div>
+            <h2 id="missionTitle">Our mission</h2>
+            <p>
+              In an emergency, finding the right blood group nearby often depends on who you happen
+              to know. BloodConnect replaces that search with a simple network: donors share their
+              blood group, location and availability, and patients get a ranked list of donors who
+              can actually help.
+            </p>
+          </div>
+          <div>
+            <h2>Built as a societal project</h2>
+            <p>
+              BloodConnect is a community project, free to use for donors and patients. It is built
+              to make voluntary blood donation faster, safer and more transparent for everyone
+              involved.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="stepsTitle">
+        <h2 class="about-heading" id="stepsTitle">How it works</h2>
+        <ol class="about-steps">
+          <li>
+            <span class="about-step-number">1</span>
+            <h3>Join</h3>
+            <p>Register as a donor or a patient. Donors add their blood group, location and availability.</p>
+          </li>
+          <li>
+            <span class="about-step-number">2</span>
+            <h3>Request</h3>
+            <p>A patient creates an emergency request with the hospital, blood group, units and urgency.</p>
+          </li>
+          <li>
+            <span class="about-step-number">3</span>
+            <h3>Match</h3>
+            <p>We find compatible, available donors and rank them by distance, blood group and availability.</p>
+          </li>
+          <li>
+            <span class="about-step-number">4</span>
+            <h3>Connect</h3>
+            <p>Nearby donors get an alert, call the patient and head to the hospital to donate.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="about-section" aria-labelledby="featuresTitle">
+        <h2 class="about-heading" id="featuresTitle">What you can do</h2>
+        <div class="about-features">
+          <a class="about-feature" href="/nearby-donors">
+            <span class="about-feature-icon" aria-hidden="true">📍</span>
+            <h3>Find nearby donors</h3>
+            <p>Search compatible donors around any location and get directions on the map.</p>
+          </a>
+          <a class="about-feature" href="/emergency-request">
+            <span class="about-feature-icon" aria-hidden="true">🚨</span>
+            <h3>Emergency requests</h3>
+            <p>Raise a request in under a minute with the exact hospital location.</p>
+          </a>
+          <a class="about-feature" href="/emergency-request?tab=matches">
+            <span class="about-feature-icon" aria-hidden="true">🎯</span>
+            <h3>Best-ranked matches</h3>
+            <p>Your matches are ordered by blood group, distance and availability, best first.</p>
+          </a>
+          <a class="about-feature" href="/eligibility">
+            <span class="about-feature-icon" aria-hidden="true">🩺</span>
+            <h3>Can I donate today?</h3>
+            <p>Answer a few quick health questions. Fixed medical rules decide, and you see the date you can donate next.</p>
+          </a>
+          <a class="about-feature" href="/notifications">
+            <span class="about-feature-icon" aria-hidden="true">🔔</span>
+            <h3>Donor alerts</h3>
+            <p>Donors see open requests they can help with, most urgent and nearest first.</p>
+          </a>
+          <a class="about-feature" href="/emergency-request?tab=track">
+            <span class="about-feature-icon" aria-hidden="true">📋</span>
+            <h3>Request tracking</h3>
+            <p>Follow each request from submission to fulfilment, and close it when blood arrives.</p>
+          </a>
+          <div class="about-feature">
+            <span class="about-feature-icon" aria-hidden="true">🔒</span>
+            <h3>Privacy first</h3>
+            <p>Passwords are encrypted, names and phone numbers stay private, and eligibility health answers are never stored.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="compatTitle">
+        <h2 class="about-heading" id="compatTitle">Who can give to whom</h2>
+        <p class="about-subtext">Red cell compatibility used for matching. O− is the universal donor and AB+ the universal recipient.</p>
+        <div class="about-compat" role="table" aria-label="Blood group compatibility">
+          <div class="about-compat-row is-head" role="row">
+            <span role="columnheader">Group</span>
+            <span role="columnheader">Can give to</span>
+            <span role="columnheader">Can receive from</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">O−</strong>
+            <span role="cell">Everyone</span>
+            <span role="cell">O−</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">O+</strong>
+            <span role="cell">O+, A+, B+, AB+</span>
+            <span role="cell">O−, O+</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">A−</strong>
+            <span role="cell">A−, A+, AB−, AB+</span>
+            <span role="cell">O−, A−</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">A+</strong>
+            <span role="cell">A+, AB+</span>
+            <span role="cell">O−, O+, A−, A+</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">B−</strong>
+            <span role="cell">B−, B+, AB−, AB+</span>
+            <span role="cell">O−, B−</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">B+</strong>
+            <span role="cell">B+, AB+</span>
+            <span role="cell">O−, O+, B−, B+</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">AB−</strong>
+            <span role="cell">AB−, AB+</span>
+            <span role="cell">O−, A−, B−, AB−</span>
+          </div>
+          <div class="about-compat-row" role="row">
+            <strong role="cell">AB+</strong>
+            <span role="cell">AB+</span>
+            <span role="cell">Everyone</span>
+          </div>
+        </div>
+      </section>
+
+      <p class="about-note">
+        <strong>Important:</strong> BloodConnect helps you find donors; it is not medical advice. A
+        qualified doctor or blood bank must always confirm that blood is suitable before a transfusion.
+      </p>
+
+      <section class="about-cta" aria-labelledby="ctaTitle">
+        <h2 id="ctaTitle">Ready to save a life?</h2>
+        <p>One donation can help up to three people. Join as a donor or raise a request now.</p>
+        <div class="about-cta-actions">
+          <a class="about-cta-btn is-light" href="/register">Become a donor</a>
+          <a class="about-cta-btn" href="/emergency-request">Request blood</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 BloodConnect | Blood Donation and Donor Matching</p>
+    </footer>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+  </body>
+</html>

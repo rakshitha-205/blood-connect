@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin dashboard - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="nearby-page admin-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="admin-layout">
+      <div class="nearby-intro">
+        <p class="form-kicker">Admin</p>
+        <h1>Admin dashboard</h1>
+        <p class="form-lead">Registered hospitals, donors, and patients who got help.</p>
+      </div>
+
+      <div class="admin-locked" id="adminLocked" hidden></div>
+
+      <div class="admin-content" id="adminContent" hidden>
+        <div class="admin-stats" role="tablist" aria-label="Admin lists">
+          <button type="button" class="admin-stat is-active" role="tab" data-tab="hospitals" aria-selected="true">
+            <span class="admin-stat-icon" aria-hidden="true">🏥</span>
+            <span class="admin-stat-text">
+              <strong id="statHospitals">0</strong>
+              <span>Hospitals</span>
+            </span>
+          </button>
+          <button type="button" class="admin-stat" role="tab" data-tab="donors" aria-selected="false">
+            <span class="admin-stat-icon" aria-hidden="true">🩸</span>
+            <span class="admin-stat-text">
+              <strong id="statDonors">0</strong>
+              <span>Donors</span>
+            </span>
+          </button>
+          <button type="button" class="admin-stat" role="tab" data-tab="helped" aria-selected="false">
+            <span class="admin-stat-icon" aria-hidden="true">💚</span>
+            <span class="admin-stat-text">
+              <strong id="statHelped">0</strong>
+              <span>Patients helped</span>
+            </span>
+          </button>
+        </div>
+
+        <section class="admin-panel">
+          <div class="admin-toolbar">
+            <h2 class="admin-list-title" id="adminListTitle">Hospitals</h2>
+            <input type="search" class="admin-search" id="adminSearch" placeholder="Search..." aria-label="Search the list" />
+          </div>
+          <p id="adminStatus" class="nearby-status" role="status" aria-live="polite"></p>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="adminTable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/pages/admin.js?v=2"></script>
+  </body>
+</html>

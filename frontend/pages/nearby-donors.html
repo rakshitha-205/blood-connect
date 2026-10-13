@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nearby Donors - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="nearby-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors" aria-current="page">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="nearby-layout lock-stage" id="nearbyStage">
+      <section class="er-gate" hidden aria-labelledby="nearbyGateTitle">
+        <div class="er-gate-icon" aria-hidden="true">🩸</div>
+        <h2 id="nearbyGateTitle">Log in to find donors</h2>
+        <p>Donor details are shared only with registered BloodConnect members.</p>
+        <div class="er-gate-actions">
+          <a class="er-btn is-primary" href="/login">Log in</a>
+          <a class="er-btn" href="/register">Create account</a>
+        </div>
+        <p class="er-gate-hint">In a life-threatening emergency, call <a href="tel:108">108</a> right away.</p>
+      </section>
+
+      <section class="nearby-main lock-content">
+        <div class="nearby-intro">
+          <p class="form-kicker">Find donors</p>
+          <h1>Nearby blood donors</h1>
+          <p class="form-lead">Compatible, available donors ranked by how close they are to you.</p>
+        </div>
+
+        <form class="nearby-search" id="nearbySearchForm">
+          <label class="nearby-field">
+            <span>Blood group needed</span>
+            <select id="bloodGroup" required>
+              <option value="">Choose group</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </label>
+
+          <label class="nearby-field nearby-field-location">
+            <span>Location</span>
+            <div class="nearby-location-input">
+              <input type="text" id="location" placeholder="Area, city or hospital" required />
+              <button type="button" id="useLocationButton" class="nearby-locate" aria-label="Use my current location" title="Use my current location">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg>
+              </button>
+            </div>
+          </label>
+
+          <button class="nearby-submit" id="searchDonorsButton" type="submit">Search donors</button>
+          <input id="latitude" type="hidden" />
+          <input id="longitude" type="hidden" />
+        </form>
+
+        <p id="nearbyStatus" class="nearby-status" role="status" aria-live="polite"></p>
+
+        <div class="nearby-results-head">
+          <h2>Available donors</h2>
+          <span class="nearby-sort">Nearest first</span>
+        </div>
+
+        <div class="nearby-list" id="donorGrid">
+          <div class="nearby-empty">
+            <div class="nearby-empty-icon" aria-hidden="true">🩸</div>
+            <strong>Search to see donors near you</strong>
+            <p>Choose the blood group and enter a location, or use your current location.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="nearby-map lock-content">
+        <iframe
+          id="googleDonorMap"
+          title="Map of the donor search location"
+          src="https://www.google.com/maps?q=Bengaluru&amp;z=11&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </aside>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/connect.js?v=2"></script>
+    <script src="/assets/js/pages/nearby-donors.js?v=2"></script>
+  </body>
+</html>

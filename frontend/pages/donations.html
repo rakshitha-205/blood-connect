@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Donations - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="nearby-page donations-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="matches-layout">
+      <div class="nearby-intro">
+        <p class="form-kicker">My donations</p>
+        <h1>Your donation record</h1>
+        <p class="form-lead">Every request you accepted, the blood you gave and the patients you helped.</p>
+      </div>
+
+      <div class="admin-stats donations-stats" id="donationStats" hidden>
+        <div class="admin-stat">
+          <span class="admin-stat-icon" aria-hidden="true">🩸</span>
+          <span class="admin-stat-text">
+            <strong id="statDonations">0</strong>
+            <span>Donations completed</span>
+          </span>
+        </div>
+        <div class="admin-stat">
+          <span class="admin-stat-icon" aria-hidden="true">🧪</span>
+          <span class="admin-stat-text">
+            <strong id="statUnits">0</strong>
+            <span>Units donated</span>
+          </span>
+        </div>
+        <div class="admin-stat">
+          <span class="admin-stat-icon" aria-hidden="true">⏳</span>
+          <span class="admin-stat-text">
+            <strong id="statPending">0</strong>
+            <span>Waiting to donate</span>
+          </span>
+        </div>
+      </div>
+
+      <p class="match-ranking-note" id="donationEligibility" hidden></p>
+
+      <p id="donationsStatus" class="nearby-status" role="status" aria-live="polite"></p>
+
+      <section class="accepted-section" id="pendingSection" hidden aria-labelledby="pendingTitle">
+        <div class="nearby-results-head">
+          <h2 id="pendingTitle">Waiting to donate</h2>
+          <span class="nearby-sort" id="pendingCount"></span>
+        </div>
+        <div class="nearby-list" id="pendingList"></div>
+      </section>
+
+      <section class="accepted-section" id="historySection" hidden aria-labelledby="historyTitle">
+        <div class="nearby-results-head">
+          <h2 id="historyTitle">Donation history</h2>
+          <span class="nearby-sort" id="historyCount"></span>
+        </div>
+        <div class="nearby-list" id="historyList"></div>
+      </section>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/connect.js?v=2"></script>
+    <script src="/assets/js/pages/donations.js?v=2"></script>
+  </body>
+</html>

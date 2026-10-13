@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify your account - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="verify-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="login-page">
+      <div class="login-container verify-container">
+        <ol class="verify-progress" aria-label="Sign-up progress">
+          <li class="is-done"><span class="verify-progress-dot" aria-hidden="true">✓</span>Account</li>
+          <li class="is-current" aria-current="step"><span class="verify-progress-dot" aria-hidden="true">2</span>Verify email</li>
+          <li><span class="verify-progress-dot" aria-hidden="true">3</span>Log in</li>
+        </ol>
+
+        <div class="verify-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7.5l8 5.5 8-5.5"/></svg>
+        </div>
+        <h1 class="login-title">Check your email</h1>
+        <p class="login-subtitle" id="verifySubtitle">
+          For everyone's safety, confirm your email once. We'll send a 6‑digit code to your inbox.
+        </p>
+
+        <section class="verify-step" id="emailStep" data-channel="EMAIL">
+          <div class="verify-step-head">
+            <span class="verify-step-number" id="emailStepNumber" hidden>1</span>
+            <span class="verify-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
+            </span>
+            <div>
+              <h2>Email address</h2>
+              <p class="verify-destination" id="emailDestination"></p>
+            </div>
+            <span class="verify-badge" hidden>✓ Verified</span>
+          </div>
+          <div class="verify-body">
+            <button type="button" class="verify-send">Send code</button>
+            <form class="verify-form" hidden>
+              <p class="verify-label" id="emailCodeLabel">Enter the 6-digit code we emailed you</p>
+              <input class="verify-code" id="emailCode" type="hidden" />
+              <div class="otp-boxes" role="group" aria-labelledby="emailCodeLabel"></div>
+              <button type="submit" class="verify-submit">Verify email</button>
+              <p class="verify-tip">Can't find it? Check your Spam or Promotions folder.</p>
+            </form>
+            <p class="verify-hint" hidden></p>
+            <p class="verify-message" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <section class="verify-step" id="phoneStep" data-channel="PHONE" hidden>
+          <div class="verify-step-head">
+            <span class="verify-step-number">2</span>
+            <div>
+              <h2>Phone number</h2>
+              <p class="verify-destination" id="phoneDestination"></p>
+            </div>
+            <span class="verify-badge" hidden>Verified</span>
+          </div>
+          <div class="verify-body">
+            <label class="verify-label" for="phoneNumber">Mobile number</label>
+            <input class="verify-phone" id="phoneNumber" type="tel" placeholder="e.g. 9876543210" />
+            <button type="button" class="verify-send">Send code</button>
+            <form class="verify-form" hidden>
+              <p class="verify-label" id="phoneCodeLabel">Enter the 6-digit code we texted you</p>
+              <input class="verify-code" id="phoneCode" type="hidden" />
+              <div class="otp-boxes" role="group" aria-labelledby="phoneCodeLabel"></div>
+              <button type="submit" class="verify-submit">Verify phone</button>
+            </form>
+            <p class="verify-hint" hidden></p>
+            <p class="verify-message" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <div class="verify-done" id="verifyDone" role="status" hidden>
+          <span class="verify-done-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          </span>
+          <strong>Email verified!</strong>
+          <span class="verify-done-text">Taking you to login...</span>
+        </div>
+        <button type="button" class="back-home verify-logout" id="verifyLogout">Use a different account</button>
+      </div>
+    </section>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/otp-boxes.js?v=2"></script>
+    <script src="/assets/js/pages/verify.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Banks - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="nearby-page">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="matches-layout">
+      <div class="nearby-intro">
+        <p class="form-kicker">Blood banks</p>
+        <h1>Blood bank stock</h1>
+        <p class="form-lead">Blood available at registered blood banks. Call or WhatsApp them before you go.</p>
+      </div>
+
+      <label class="nearby-field bank-filter">
+        <span>Blood group</span>
+        <select id="bankBloodGroup">
+          <option value="">All groups</option>
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O-</option>
+        </select>
+      </label>
+
+      <p id="bankStatus" class="nearby-status" role="status" aria-live="polite"></p>
+
+      <div class="nearby-list" id="bankList"></div>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/connect.js?v=2"></script>
+    <script src="/assets/js/pages/blood-banks.js?v=2"></script>
+  </body>
+</html>

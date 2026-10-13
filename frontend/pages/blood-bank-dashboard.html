@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Stock - BloodConnect</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=2" />
+  </head>
+  <body class="profile-body">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="/">🩸 BloodConnect</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/nearby-donors">Find Donor</a>
+          <a href="/emergency-request">Emergency</a>
+          <a href="/about">About</a>
+          <a class="login-btn" href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="profile-page">
+      <section class="profile-signed-out" id="bankGate" hidden>
+        <h1 id="bankGateTitle">Log in as a blood bank</h1>
+        <p id="bankGateText">Registered blood banks can share their live blood stock here.</p>
+        <div class="profile-actions">
+          <a class="profile-btn primary" href="/login">Login</a>
+          <a class="profile-btn" href="/register">Register a blood bank</a>
+        </div>
+      </section>
+
+      <div id="bankContent" hidden>
+        <section class="profile-hero">
+          <div class="profile-avatar" aria-hidden="true">🏦</div>
+          <div class="profile-identity">
+            <p class="profile-welcome">Blood bank dashboard</p>
+            <h1 id="bankTitle">Your blood bank</h1>
+            <p class="profile-email" id="bankSubtitle">Add your details, then share your stock.</p>
+            <div class="profile-tags">
+              <span class="profile-tag role" id="bankTotal">0 units in stock</span>
+              <span class="profile-tag" id="bankUpdated">Not published yet</span>
+            </div>
+          </div>
+        </section>
+
+        <p id="bankMessage" class="profile-message" role="status" aria-live="polite"></p>
+
+        <section class="profile-card" id="stockSection" hidden>
+          <div class="profile-card-head">
+            <h2>Blood stock</h2>
+            <a class="match-link" href="/blood-banks">See public listing</a>
+          </div>
+          <p class="bank-help">Enter the units available for each group. Patients see this live on the Blood Banks page.</p>
+          <form id="stockForm">
+            <div class="stock-editor" id="stockEditor"></div>
+            <button type="submit" class="register-submit" id="saveStockButton">Publish stock</button>
+          </form>
+        </section>
+
+        <section class="profile-card">
+          <div class="profile-card-head">
+            <h2>Blood bank details</h2>
+          </div>
+          <form id="bankForm" class="profile-form">
+            <div class="form-group">
+              <label for="bankName">Blood bank name</label>
+              <input id="bankName" maxlength="120" required />
+            </div>
+            <div class="form-group">
+              <label for="bankPhone">Phone / WhatsApp number</label>
+              <input id="bankPhone" type="tel" maxlength="30" placeholder="9876543210" required />
+            </div>
+            <div class="form-group">
+              <label for="bankHours">Opening hours</label>
+              <input id="bankHours" maxlength="80" placeholder="e.g. 24 hours or 9 AM – 8 PM" />
+            </div>
+            <div class="form-group">
+              <label for="bankLocation">Location</label>
+              <input id="bankLocation" maxlength="160" placeholder="Area, city" required />
+            </div>
+            <div class="form-group wide profile-location">
+              <button type="button" class="ghost-btn" id="useBankLocation">Use my current location</button>
+              <span id="bankLocationMessage" aria-live="polite"></span>
+              <input id="bankLatitude" type="hidden" />
+              <input id="bankLongitude" type="hidden" />
+            </div>
+            <button type="submit" class="register-submit wide" id="saveBankButton">Save details</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="/assets/js/core/config.js?v=2"></script>
+    <script src="/assets/js/core/session.js?v=2"></script>
+    <script src="/assets/js/core/http.js?v=2"></script>
+    <script src="/assets/js/core/ui.js?v=2"></script>
+    <script src="/assets/js/core/location.js?v=2"></script>
+    <script src="/assets/js/core/navigation.js?v=2"></script>
+    <script src="/assets/js/core/connect.js?v=2"></script>
+    <script src="/assets/js/pages/blood-bank-dashboard.js?v=2"></script>
+  </body>
+</html>

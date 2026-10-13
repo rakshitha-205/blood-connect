@@ -1,0 +1,15 @@
+{
+  "name": "bloodconnect",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names backend,frontend --prefix-colors red,blue \"npm:backend\" \"npm:frontend\"",
+    "frontend": "vite --config frontend/vite.config.js",
+    "backend": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-backend.ps1",
+    "test:backend": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-backend.ps1 -Test"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "vite": "^8.3.4"
+  }
+}
